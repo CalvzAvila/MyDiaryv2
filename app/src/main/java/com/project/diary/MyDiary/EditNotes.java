@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.project.diary.MyDiary.models.DeleteModel;
@@ -29,7 +28,7 @@ public class EditNotes extends android.support.v4.app.Fragment{
     public static int id;
     public  static  String title,contents;
     //TextView contact_id;
-    EditText editTitle,editContents;
+    EditText etTitle,etContents;
     Button btn_update,btn_delete;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction,fragmentTransaction1;
@@ -46,14 +45,14 @@ public class EditNotes extends android.support.v4.app.Fragment{
         accountFragment = new AccountFragment();
 
        // contact_id = view.findViewById(R.id.text_contact_id);
-        editTitle = view.findViewById(R.id.edit_contact_first);
-        editContents = view.findViewById(R.id.edit_contact_last);
-        btn_update = view.findViewById(R.id.btn_update);
-        btn_delete = view.findViewById(R.id.btn_delete);
+        etTitle = view.findViewById(R.id.editTitle);
+        etContents = view.findViewById(R.id.editContents);
+        btn_update = view.findViewById(R.id.btnUpdate);
+        btn_delete = view.findViewById(R.id.btnDelete);
 
         //contact_id.setText(""+id);
-        editTitle.setText(title);
-        editContents.setText(contents);
+        etTitle.setText(title);
+        etContents.setText(contents);
 
         btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +79,7 @@ public class EditNotes extends android.support.v4.app.Fragment{
 
         ServiceApi serviceApi = retrofit.create(ServiceApi.class);
         Call<UpdateModel> updateModelCall = serviceApi.isUpdate(
-                id,editTitle.getText().toString(),editContents.getText().toString());
+                id,etTitle.getText().toString(),etContents.getText().toString());
 
         updateModelCall.enqueue(new Callback<UpdateModel>() {
             @Override
@@ -93,7 +92,6 @@ public class EditNotes extends android.support.v4.app.Fragment{
                     Toast.makeText(getActivity(), "Update failed!", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call<UpdateModel> call, Throwable t) {
                 Log.d(TAG, "onFailure: "+t.getMessage());
@@ -131,7 +129,7 @@ public class EditNotes extends android.support.v4.app.Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_edit_contacts, container, false);
+        view = inflater.inflate(R.layout.fragment_edit_notes, container, false);
         MyViews(view);
         return view;
     }

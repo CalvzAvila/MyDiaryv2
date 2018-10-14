@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +20,7 @@ import android.widget.Toast;
 
 import com.project.diary.MyDiary.adapters.GetDataAdapter;
 import com.project.diary.MyDiary.models.GetDataModel;
-import com.project.diary.MyDiary.models.SavePhoneModel;
+import com.project.diary.MyDiary.models.SaveNotesModel;
 import com.project.diary.MyDiary.service.ServiceApi;
 
 import java.util.ArrayList;
@@ -133,12 +132,12 @@ public class AccountFragment extends android.support.v4.app.Fragment {
                                 .build();
 
                         ServiceApi serviceApi = retrofit.create(ServiceApi.class);
-                        Call<SavePhoneModel> savePhoneModelCall = serviceApi.isSaved(
+                        Call<SaveNotesModel> savePhoneModelCall = serviceApi.isSaved(
                                 user_id, etTitle, etContents);
 
-                        savePhoneModelCall.enqueue(new Callback<SavePhoneModel>() {
+                        savePhoneModelCall.enqueue(new Callback<SaveNotesModel>() {
                             @Override
-                            public void onResponse(Call<SavePhoneModel> call, Response<SavePhoneModel> response) {
+                            public void onResponse(Call<SaveNotesModel> call, Response<SaveNotesModel> response) {
                                 if (response.body().getSuccess() == 1) {
                                     Toast.makeText(getActivity(), "Data saved successfully!", Toast.LENGTH_SHORT).show();
                                     //myList.clear();
@@ -149,7 +148,7 @@ public class AccountFragment extends android.support.v4.app.Fragment {
                             }
 
                             @Override
-                            public void onFailure(Call<SavePhoneModel> call, Throwable t) {
+                            public void onFailure(Call<SaveNotesModel> call, Throwable t) {
                                 Log.d(TAG, "onFailure: " + t.getMessage());
                             }
                         });

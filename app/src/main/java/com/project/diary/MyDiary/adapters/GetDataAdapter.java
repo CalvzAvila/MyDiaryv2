@@ -68,7 +68,7 @@ public class GetDataAdapter extends RecyclerView.Adapter<GetDataAdapter.ViewHold
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            id = itemView.findViewById(R.id.text_id);
+            //id = itemView.findViewById(R.id.text_id);
             title = itemView.findViewById(R.id.text_fname);
             contents = itemView.findViewById(R.id.text_lname);
             btn_relate = itemView.findViewById(R.id.btn_relative);

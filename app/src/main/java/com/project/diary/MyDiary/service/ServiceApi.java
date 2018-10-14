@@ -4,7 +4,7 @@ import com.project.diary.MyDiary.models.DeleteModel;
 import com.project.diary.MyDiary.models.GetDataModel;
 import com.project.diary.MyDiary.models.LoginModel;
 import com.project.diary.MyDiary.models.RegisterModel;
-import com.project.diary.MyDiary.models.SavePhoneModel;
+import com.project.diary.MyDiary.models.SaveNotesModel;
 import com.project.diary.MyDiary.models.UpdateModel;
 
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ public interface ServiceApi {
 
     @FormUrlEncoded
     @POST("/diaryfiles2/save.php")
-    Call<SavePhoneModel> isSaved(@Field("user_id") int user_id,
+    Call<SaveNotesModel> isSaved(@Field("user_id") int user_id,
                                  @Field("title") String title,
                                  @Field("contents") String contents);
 
@@ -38,8 +38,8 @@ public interface ServiceApi {
     @FormUrlEncoded
     @POST("/diaryfiles2/updater.php")
     Call<UpdateModel> isUpdate(@Field("id") int id,
-                               @Field("firstname") String firstname,
-                               @Field("lastname") String lastname);
+                               @Field("title") String title,
+                               @Field("contents") String contents);
 
 
     @FormUrlEncoded
