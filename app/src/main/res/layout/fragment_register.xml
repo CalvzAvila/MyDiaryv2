@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterFragment">
+
+    <EditText
+        android:id="@+id/edit_reg_firstname"
+        android:hint="Enter first name"
+        android:fontFamily="courier new"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:layout_below="@id/edit_reg_firstname"
+        android:id="@+id/edit_reg_lastname"
+        android:hint="Enter last name"
+        android:fontFamily="courier new"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:layout_below="@id/edit_reg_lastname"
+        android:id="@+id/edit_reg_email"
+        android:hint="Enter email"
+        android:fontFamily="courier new"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:inputType="textEmailAddress"
+        android:id="@+id/edit_reg_user"
+        android:layout_below="@id/edit_reg_email"
+        android:hint="Enter username"
+        android:fontFamily="courier new"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:inputType="textPassword"
+        android:layout_below="@id/edit_reg_user"
+        android:id="@+id/edit_reg_pass"
+        android:hint="Enter password"
+        android:fontFamily="courier new"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <EditText
+        android:inputType="textPassword"
+        android:layout_below="@id/edit_reg_pass"
+        android:id="@+id/edit_reg_retype_pass"
+        android:hint="Enter retype password"
+        android:fontFamily="courier new"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_margin="5dp"
+        android:layout_below="@+id/edit_reg_retype_pass"
+        android:text="Register"
+        android:fontFamily="courier new"
+        android:id="@+id/btn_reg_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>
