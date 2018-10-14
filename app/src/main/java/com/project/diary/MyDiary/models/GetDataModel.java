@@ -3,6 +3,9 @@ package com.project.diary.MyDiary.models;
 public class GetDataModel {
 
     private int id;
+    private String firstname;
+    private String lastname;
+
 
     public int getId() {
         return id;
@@ -16,19 +19,12 @@ public class GetDataModel {
         return lastname;
     }
 
-    public String getPhone() {
-        return phone;
-    }
 
-    public GetDataModel(int id, String firstname, String lastname, String phone) {
+    public GetDataModel(int id, String firstname, String lastname) {
 
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.phone = phone;
     }
 
-    private String firstname;
-    private String lastname;
-    private String phone;
 }

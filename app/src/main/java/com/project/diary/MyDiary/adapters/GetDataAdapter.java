@@ -42,7 +42,6 @@ public class GetDataAdapter extends RecyclerView.Adapter<GetDataAdapter.ViewHold
         final GetDataModel getDataModel = myarrayList.get(i);
         viewHolder.fname.setText(getDataModel.getFirstname());
         viewHolder.lname.setText(getDataModel.getLastname());
-        viewHolder.phone.setText(getDataModel.getPhone());
        viewHolder.btn_relate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,7 +49,6 @@ public class GetDataAdapter extends RecyclerView.Adapter<GetDataAdapter.ViewHold
                 EditNotes.id = getDataModel.getId();
                 EditNotes.fname = getDataModel.getFirstname();
                 EditNotes.lname = getDataModel.getLastname();
-                EditNotes.phone = getDataModel.getPhone();
                 fragmentManager = context.getSupportFragmentManager();
                 fragmentTransaction = fragmentManager.beginTransaction();
                 editNotes = new EditNotes();
@@ -73,7 +71,7 @@ public class GetDataAdapter extends RecyclerView.Adapter<GetDataAdapter.ViewHold
             id = itemView.findViewById(R.id.text_id);
             fname = itemView.findViewById(R.id.text_fname);
             lname = itemView.findViewById(R.id.text_lname);
-            phone = itemView.findViewById(R.id.text_phone);
+            //phone = itemView.findViewById(R.id.text_phone);
             btn_relate = itemView.findViewById(R.id.btn_relative);
         }
     }

@@ -37,7 +37,7 @@ public class AccountFragment extends android.support.v4.app.Fragment {
     View view;
     ImageView btn_add,btn_logout;
     static int user_id;
-    String fname, lname, cp;
+    String etTitle, etContents, cp;
     private RecyclerView recyclerView;
     private GetDataAdapter adapter;
     private ArrayList<GetDataModel> myList;
@@ -102,36 +102,31 @@ public class AccountFragment extends android.support.v4.app.Fragment {
                 params.setMargins(50, 15, 50, 15);
 
                 linearLayout.setOrientation(LinearLayout.VERTICAL);
-                final TextView title = new TextView(getActivity());
-                title.setText("Add new contacts");
-                title.setTextSize(35);
-                title.setTypeface(Typeface.create("Courier new", Typeface.BOLD));
+                final TextView header = new TextView(getActivity());
+                header.setText("My Day");
+                header.setTextSize(35);
+                header.setTypeface(Typeface.create("Courier new", Typeface.BOLD));
+                linearLayout.addView(header, params);
+
+                final EditText title = new EditText(getActivity());
+                title.setHint("title");
+                title.setTypeface(Typeface.create("Courier new", Typeface.NORMAL));
                 linearLayout.addView(title, params);
 
-                final EditText firstname = new EditText(getActivity());
-                firstname.setHint("Enter firstname");
-                firstname.setTypeface(Typeface.create("Courier new", Typeface.NORMAL));
-                linearLayout.addView(firstname, params);
+                final EditText contents = new EditText(getActivity());
+                contents.setHint("contents");
+                contents.setTypeface(Typeface.create("Courier new", Typeface.NORMAL));
+                linearLayout.addView(contents, params);
 
-                final EditText lastname = new EditText(getActivity());
-                lastname.setHint("Enter lastname");
-                lastname.setTypeface(Typeface.create("Courier new", Typeface.NORMAL));
-                linearLayout.addView(lastname, params);
 
-                final EditText phone = new EditText(getActivity());
-                phone.setHint("Enter phonenumber");
-                phone.setTypeface(Typeface.create("Courier new", Typeface.NORMAL));
-                phone.setInputType(InputType.TYPE_CLASS_NUMBER);
-                linearLayout.addView(phone, params);
 
                 messagebox.setView(linearLayout);
                 messagebox.setPositiveButton("Save", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        fname = firstname.getText().toString();
-                        lname = lastname.getText().toString();
-                        cp = phone.getText().toString();
+                        etTitle = title.getText().toString();
+                        etContents = contents.getText().toString();
                         Retrofit retrofit = new Retrofit.Builder()
                                 .baseUrl(Constants.BASEURL)
                                 .addConverterFactory(GsonConverterFactory.create())
@@ -139,15 +134,14 @@ public class AccountFragment extends android.support.v4.app.Fragment {
 
                         ServiceApi serviceApi = retrofit.create(ServiceApi.class);
                         Call<SavePhoneModel> savePhoneModelCall = serviceApi.isSaved(
-                                user_id, fname, lname, cp
-                        );
+                                user_id, etTitle, etContents);
 
                         savePhoneModelCall.enqueue(new Callback<SavePhoneModel>() {
                             @Override
                             public void onResponse(Call<SavePhoneModel> call, Response<SavePhoneModel> response) {
                                 if (response.body().getSuccess() == 1) {
                                     Toast.makeText(getActivity(), "Data saved successfully!", Toast.LENGTH_SHORT).show();
-                                    myList.clear();
+                                    //myList.clear();
                                     ShowData();
                                 } else {
                                     Toast.makeText(getActivity(), "Data saved failed!", Toast.LENGTH_SHORT).show();

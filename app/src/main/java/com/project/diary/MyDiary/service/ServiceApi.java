@@ -28,9 +28,8 @@ public interface ServiceApi {
     @FormUrlEncoded
     @POST("/diaryfiles2/save.php")
     Call<SavePhoneModel> isSaved(@Field("user_id") int user_id,
-                                 @Field("firstname") String firstname,
-                                 @Field("lastname") String lastname,
-                                 @Field("phone") String phone);
+                                 @Field("title") String title,
+                                 @Field("contents") String contents);
 
     @FormUrlEncoded
     @POST("/diaryfiles2/getdata.php")
