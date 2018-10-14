@@ -17,30 +17,27 @@ import retrofit2.http.POST;
 public interface ServiceApi {
 
     @FormUrlEncoded
-    @POST("/phonebook/login.php")
+    @POST("/diaryfiles2/login.php")
     Call<LoginModel> isTrue(@Field("username") String username,@Field("password") String password);
 
     @FormUrlEncoded
-    @POST("/phonebook/register.php")
-    Call<RegisterModel> isRegister(@Field("firstname") String firstname,
-                                   @Field("lastname") String lastname,
-                                   @Field("email") String email,
-                                   @Field("username") String username,
+    @POST("/diaryfiles2/register.php")
+    Call<RegisterModel> isRegister(@Field("username") String username,
                                    @Field("password") String password);
 
     @FormUrlEncoded
-    @POST("/phonebook/save.php")
+    @POST("/diaryfiles2/save.php")
     Call<SavePhoneModel> isSaved(@Field("user_id") int user_id,
                                  @Field("firstname") String firstname,
                                  @Field("lastname") String lastname,
                                  @Field("phone") String phone);
 
     @FormUrlEncoded
-    @POST("/phonebook/getdata.php")
+    @POST("/diaryfiles2/getdata.php")
     Call<ArrayList<GetDataModel>> phoneData(@Field("user_id") int user_id);
 
     @FormUrlEncoded
-    @POST("/phonebook/updater.php")
+    @POST("/diaryfiles2/updater.php")
     Call<UpdateModel> isUpdate(@Field("id") int id,
                                @Field("firstname") String firstname,
                                @Field("lastname") String lastname,
@@ -48,7 +45,7 @@ public interface ServiceApi {
 
 
     @FormUrlEncoded
-    @POST("/phonebook/deleter.php")
+    @POST("/diaryfiles2/deleter.php")
     Call<DeleteModel> isDelete(@Field("id") int id);
 
 }

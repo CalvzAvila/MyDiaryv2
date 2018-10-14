@@ -22,14 +22,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RegisterFragment extends android.support.v4.app.Fragment {
 
     View view;
-    EditText edit_reg_firstname,edit_reg_lastname,edit_reg_email,edit_reg_user,edit_reg_pass,edit_reg_retype_pass;
+    EditText edit_reg_user,edit_reg_pass,edit_reg_retype_pass;
     Button btn_register;
     private static final String TAG = "RegisterFragment";
 
     private void MyViews(View view){
-        edit_reg_firstname = view.findViewById(R.id.edit_reg_firstname);
-        edit_reg_lastname = view.findViewById(R.id.edit_reg_lastname);
-        edit_reg_email = view.findViewById(R.id.edit_reg_email);
         edit_reg_user = view.findViewById(R.id.edit_reg_user);
         edit_reg_pass = view.findViewById(R.id.edit_reg_pass);
         edit_reg_retype_pass = view.findViewById(R.id.edit_reg_retype_pass);
@@ -44,26 +41,18 @@ public class RegisterFragment extends android.support.v4.app.Fragment {
     }
 
     private void RegisterUser(){
-
-        String fname = edit_reg_firstname.getText().toString();
-        String lname = edit_reg_lastname.getText().toString();
-        String email = edit_reg_email.getText().toString();
         String user = edit_reg_user.getText().toString();
         String pass = edit_reg_pass.getText().toString();
         String retype_pass = edit_reg_retype_pass.getText().toString();
 
         if (retype_pass.equals(pass)){
-
-
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(Constants.BASEURL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
             ServiceApi serviceApi = retrofit.create(ServiceApi.class);
-            Call<RegisterModel> registerModelCall = serviceApi.isRegister(
-                fname,lname,email,user,pass
-            );
+            Call<RegisterModel> registerModelCall = serviceApi.isRegister(user,pass);
             registerModelCall.enqueue(new Callback<RegisterModel>() {
                 @Override
                 public void onResponse(Call<RegisterModel> call, Response<RegisterModel> response) {

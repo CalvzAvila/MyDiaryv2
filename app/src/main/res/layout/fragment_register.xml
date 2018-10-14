@@ -6,37 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".RegisterFragment">
 
-    <EditText
-        android:id="@+id/edit_reg_firstname"
-        android:hint="Enter first name"
-        android:fontFamily="courier new"
-        android:layout_margin="10dp"
+    <ImageView
+        android:id="@+id/logo"
+        android:src="@drawable/logo"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="30dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="100dp"
+        />
 
     <EditText
-        android:layout_below="@id/edit_reg_firstname"
-        android:id="@+id/edit_reg_lastname"
-        android:hint="Enter last name"
-        android:fontFamily="courier new"
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:layout_below="@id/edit_reg_lastname"
-        android:id="@+id/edit_reg_email"
-        android:hint="Enter email"
-        android:fontFamily="courier new"
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:inputType="textEmailAddress"
+        android:inputType="textPersonName"
         android:id="@+id/edit_reg_user"
-        android:layout_below="@id/edit_reg_email"
         android:hint="Enter username"
+        android:layout_below="@id/logo"
         android:fontFamily="courier new"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
