@@ -1,30 +1,26 @@
 package com.project.diary.MyDiary.models;
 
 public class GetDataModel {
-
     private int id;
-    private String firstname;
-    private String lastname;
+    private String title;
+    private String contents;
 
+
+    public GetDataModel(int id, String title, String contents) {
+        this.id = id;
+        this.title = title;
+        this.contents = contents;
+    }
 
     public int getId() {
         return id;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getTitle() {
+        return title;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getContents() {
+        return contents;
     }
-
-
-    public GetDataModel(int id, String firstname, String lastname) {
-
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-    }
-
 }

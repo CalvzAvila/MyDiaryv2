@@ -40,15 +40,15 @@ public class GetDataAdapter extends RecyclerView.Adapter<GetDataAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull GetDataAdapter.ViewHolder viewHolder, int i) {
         final GetDataModel getDataModel = myarrayList.get(i);
-        viewHolder.fname.setText(getDataModel.getFirstname());
-        viewHolder.lname.setText(getDataModel.getLastname());
+        viewHolder.title.setText(getDataModel.getTitle());
+        viewHolder.contents.setText(getDataModel.getContents());
        viewHolder.btn_relate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Toast.makeText(context, ""+getDataModel.getId(), Toast.LENGTH_SHORT).show();
                 EditNotes.id = getDataModel.getId();
-                EditNotes.fname = getDataModel.getFirstname();
-                EditNotes.lname = getDataModel.getLastname();
+                EditNotes.fname = getDataModel.getTitle();
+                EditNotes.lname = getDataModel.getContents();
                 fragmentManager = context.getSupportFragmentManager();
                 fragmentTransaction = fragmentManager.beginTransaction();
                 editNotes = new EditNotes();
@@ -63,15 +63,14 @@ public class GetDataAdapter extends RecyclerView.Adapter<GetDataAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView id,fname,lname,phone;
+        TextView id,title,contents;
         LinearLayout btn_relate;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             id = itemView.findViewById(R.id.text_id);
-            fname = itemView.findViewById(R.id.text_fname);
-            lname = itemView.findViewById(R.id.text_lname);
-            //phone = itemView.findViewById(R.id.text_phone);
+            title = itemView.findViewById(R.id.text_fname);
+            contents = itemView.findViewById(R.id.text_lname);
             btn_relate = itemView.findViewById(R.id.btn_relative);
         }
     }
