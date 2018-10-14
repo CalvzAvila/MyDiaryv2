@@ -39,8 +39,7 @@ public interface ServiceApi {
     @POST("/diaryfiles2/updater.php")
     Call<UpdateModel> isUpdate(@Field("id") int id,
                                @Field("firstname") String firstname,
-                               @Field("lastname") String lastname,
-                               @Field("phone") String phone);
+                               @Field("lastname") String lastname);
 
 
     @FormUrlEncoded

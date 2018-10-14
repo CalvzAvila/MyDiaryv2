@@ -27,9 +27,9 @@ public class EditNotes extends android.support.v4.app.Fragment{
 
     View view;
     public static int id;
-    public  static  String fname,lname,phone;
-    TextView contact_id;
-    EditText edit_fname,edit_lname,edit_phone;
+    public  static  String title,contents;
+    //TextView contact_id;
+    EditText editTitle,editContents;
     Button btn_update,btn_delete;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction,fragmentTransaction1;
@@ -44,17 +44,16 @@ public class EditNotes extends android.support.v4.app.Fragment{
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction1 = fragmentManager.beginTransaction();
         accountFragment = new AccountFragment();
-        contact_id = view.findViewById(R.id.text_contact_id);
-        edit_fname = view.findViewById(R.id.edit_contact_first);
-        edit_lname = view.findViewById(R.id.edit_contact_last);
-        edit_phone = view.findViewById(R.id.edit_contact_number);
+
+       // contact_id = view.findViewById(R.id.text_contact_id);
+        editTitle = view.findViewById(R.id.edit_contact_first);
+        editContents = view.findViewById(R.id.edit_contact_last);
         btn_update = view.findViewById(R.id.btn_update);
         btn_delete = view.findViewById(R.id.btn_delete);
 
-        contact_id.setText(""+id);
-        edit_fname.setText(fname);
-        edit_lname.setText(lname);
-        edit_phone.setText(phone);
+        //contact_id.setText(""+id);
+        editTitle.setText(title);
+        editContents.setText(contents);
 
         btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,8 +80,7 @@ public class EditNotes extends android.support.v4.app.Fragment{
 
         ServiceApi serviceApi = retrofit.create(ServiceApi.class);
         Call<UpdateModel> updateModelCall = serviceApi.isUpdate(
-                id,edit_fname.getText().toString(),edit_lname.getText().toString(),edit_phone.getText().toString()
-        );
+                id,editTitle.getText().toString(),editContents.getText().toString());
 
         updateModelCall.enqueue(new Callback<UpdateModel>() {
             @Override

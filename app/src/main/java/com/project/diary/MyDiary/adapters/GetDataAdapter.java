@@ -47,8 +47,8 @@ public class GetDataAdapter extends RecyclerView.Adapter<GetDataAdapter.ViewHold
             public void onClick(View view) {
                 //Toast.makeText(context, ""+getDataModel.getId(), Toast.LENGTH_SHORT).show();
                 EditNotes.id = getDataModel.getId();
-                EditNotes.fname = getDataModel.getTitle();
-                EditNotes.lname = getDataModel.getContents();
+                EditNotes.title = getDataModel.getTitle();
+                EditNotes.contents = getDataModel.getContents();
                 fragmentManager = context.getSupportFragmentManager();
                 fragmentTransaction = fragmentManager.beginTransaction();
                 editNotes = new EditNotes();
