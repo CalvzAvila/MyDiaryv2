@@ -35,7 +35,8 @@
         android:layout_marginTop="10dp"
         android:inputType="textPersonName"
         android:ems="10"
-        android:hint="Title" />
+        android:hint="Title"
+        android:background="@android:color/transparent"/>
 
     <EditText
         android:id="@+id/editContents"
@@ -46,7 +47,8 @@
         android:gravity="top"
         android:hint="Your day"
         android:inputType="textMultiLine"
-        android:singleLine="false" />
+        android:singleLine="false"
+        android:background="@android:color/transparent"/>
 
 
 

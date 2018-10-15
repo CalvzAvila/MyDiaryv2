@@ -31,7 +31,8 @@
         android:layout_below="@+id/edit_user"
         android:layout_margin="10dp"
         android:hint="Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        />
 
     <Button
         android:id="@+id/btn_sign_in"

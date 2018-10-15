@@ -20,7 +20,6 @@
         android:id="@+id/edit_reg_user"
         android:hint="Enter username"
         android:layout_below="@id/logo"
-        android:fontFamily="courier new"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -30,7 +29,6 @@
         android:layout_below="@id/edit_reg_user"
         android:id="@+id/edit_reg_pass"
         android:hint="Enter password"
-        android:fontFamily="courier new"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -41,7 +39,6 @@
         android:layout_below="@id/edit_reg_pass"
         android:id="@+id/edit_reg_retype_pass"
         android:hint="Enter retype password"
-        android:fontFamily="courier new"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -50,7 +47,6 @@
         android:layout_margin="5dp"
         android:layout_below="@+id/edit_reg_retype_pass"
         android:text="Register"
-        android:fontFamily="courier new"
         android:id="@+id/btn_reg_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
