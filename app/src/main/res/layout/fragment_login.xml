@@ -21,7 +21,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/logo"
         android:layout_margin="10dp"
-        android:fontFamily="courier new"
         android:hint="Username"
         android:inputType="text" />
 
@@ -31,7 +30,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/edit_user"
         android:layout_margin="10dp"
-        android:fontFamily="courier new"
         android:hint="Password"
         android:inputType="textPassword" />
 
@@ -41,7 +39,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/edit_password"
         android:layout_margin="5dp"
-        android:fontFamily="courier new"
         android:text="Sign in" />
 
     <Button
@@ -50,7 +47,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_sign_in"
         android:layout_margin="5dp"
-        android:fontFamily="courier new"
         android:text="Register" />
 
 </RelativeLayout>

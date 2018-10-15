@@ -3,7 +3,8 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.tubiano.james.phonebookretrofit"
+        //applicationId "com.tubiano.james.phonebookretrofit"
+        applicationId"com.project.diary.MyDiary"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1

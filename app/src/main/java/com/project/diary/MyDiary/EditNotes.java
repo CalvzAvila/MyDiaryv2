@@ -2,6 +2,7 @@ package com.project.diary.MyDiary;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
@@ -29,7 +30,7 @@ public class EditNotes extends android.support.v4.app.Fragment{
     public  static  String title,contents;
     //TextView contact_id;
     EditText etTitle,etContents;
-    Button btn_update,btn_delete;
+    FloatingActionButton btn_Update,btn_delete;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction,fragmentTransaction1;
     AccountFragment accountFragment;
@@ -47,14 +48,14 @@ public class EditNotes extends android.support.v4.app.Fragment{
        // contact_id = view.findViewById(R.id.text_contact_id);
         etTitle = view.findViewById(R.id.editTitle);
         etContents = view.findViewById(R.id.editContents);
-        btn_update = view.findViewById(R.id.btnUpdate);
+        btn_Update = view.findViewById(R.id.btnUpdate);
         btn_delete = view.findViewById(R.id.btnDelete);
 
         //contact_id.setText(""+id);
         etTitle.setText(title);
         etContents.setText(contents);
 
-        btn_update.setOnClickListener(new View.OnClickListener() {
+        btn_Update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Updater();
