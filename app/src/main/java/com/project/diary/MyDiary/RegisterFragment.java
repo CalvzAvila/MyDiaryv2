@@ -38,6 +38,8 @@ public class RegisterFragment extends android.support.v4.app.Fragment {
                 RegisterUser();
             }
         });
+
+        edit_reg_user.requestFocus();
     }
 
     private void RegisterUser(){

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.project.diary.MyDiary.models.LoginModel;
@@ -25,7 +26,8 @@ public class LoginFragment extends android.support.v4.app.Fragment {
 
     View view;
     EditText edit_user,edit_pass;
-    Button btn_login, btn_register;
+    Button btn_login;
+    TextView btn_register;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction,fragmentTransaction1;
     RegisterFragment registerFragment;
@@ -39,6 +41,8 @@ public class LoginFragment extends android.support.v4.app.Fragment {
         btn_login = view.findViewById(R.id.btn_sign_in);
         btn_register = view.findViewById(R.id.btn_register);
 
+        edit_user.requestFocus();
+
         fragmentManager = getActivity().getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction1 = fragmentManager.beginTransaction();
@@ -47,6 +51,7 @@ public class LoginFragment extends android.support.v4.app.Fragment {
             @Override
             public void onClick(View view) {
                 LoginValidation();
+                clearText();
             }
         });
         btn_register.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +78,8 @@ public class LoginFragment extends android.support.v4.app.Fragment {
             username,password
         );
 
+
+
         myModel.enqueue(new Callback<LoginModel>() {
             @Override
             public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
@@ -94,9 +101,15 @@ public class LoginFragment extends android.support.v4.app.Fragment {
         });
     }
 
+    private void clearText()
+    {
+        edit_user.setText("");
+        edit_pass.setText("");
+
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         view = inflater.inflate(R.layout.fragment_login, container, false);
         MyViews(view);
         return view;

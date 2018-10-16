@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".RegisterFragment">
 
     <ImageView
@@ -15,6 +16,11 @@
         android:layout_height="100dp"
         />
 
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layoutregUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true">
     <EditText
         android:inputType="textPersonName"
         android:id="@+id/edit_reg_user"
@@ -23,7 +29,14 @@
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    </android.support.design.widget.TextInputLayout>
 
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layoutregPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/colorAccent">
     <EditText
         android:inputType="textPassword"
         android:layout_below="@id/edit_reg_user"
@@ -32,8 +45,14 @@
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    </android.support.design.widget.TextInputLayout>
 
-
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layoutregcPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/colorAccent">
     <EditText
         android:inputType="textPassword"
         android:layout_below="@id/edit_reg_pass"
@@ -42,6 +61,7 @@
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    </android.support.design.widget.TextInputLayout>
 
     <Button
         android:layout_margin="5dp"
@@ -50,6 +70,4 @@
         android:id="@+id/btn_reg_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
-
-</RelativeLayout>
+</LinearLayout>
