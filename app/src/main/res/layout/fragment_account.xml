@@ -20,8 +20,6 @@
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
         />
-
-
     <ImageView
         android:id="@+id/btn_add"
         android:src="@drawable/add_note"
@@ -36,8 +34,6 @@
         android:layout_marginRight="44dp"
         android:layout_marginBottom="15dp"
         />
-
-
     <android.support.v7.widget.RecyclerView
         android:layout_above="@+id/btn_add"
         android:id="@+id/my_recycler"
