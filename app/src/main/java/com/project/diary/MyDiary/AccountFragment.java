@@ -4,8 +4,10 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -31,7 +33,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class AccountFragment extends android.support.v4.app.Fragment {
+public class AccountFragment extends android.support.v4.app.Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
     View view;
     ImageView btn_add,btn_logout;
@@ -41,6 +43,7 @@ public class AccountFragment extends android.support.v4.app.Fragment {
     private GetDataAdapter adapter;
     private ArrayList<GetDataModel> myList;
     private RecyclerView.LayoutManager layoutManager;
+    SwipeRefreshLayout swipeLayout;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     LoginFragment loginFragment;
@@ -80,6 +83,10 @@ public class AccountFragment extends android.support.v4.app.Fragment {
         fragmentManager = getActivity().getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         loginFragment = new LoginFragment();
+
+        swipeLayout =  view.findViewById(R.id.swipelayout);
+        swipeLayout.setOnRefreshListener(this);
+
 
         ShowData();
 
@@ -157,7 +164,6 @@ public class AccountFragment extends android.support.v4.app.Fragment {
             }
         });
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_account, container, false);
@@ -165,4 +171,16 @@ public class AccountFragment extends android.support.v4.app.Fragment {
         return view;
     }
 
+    @Override
+    public void onRefresh() {
+        Toast.makeText(getActivity(), "Refresh", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                swipeLayout.setRefreshing(false);
+                ShowData();
+            }
+        }, 2000);
+
+    }
 }
